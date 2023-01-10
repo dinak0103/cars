@@ -1,0 +1,428 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3rem;
+
+  /*========== Colors ==========*/
+  --text-color: #fff;
+  --body-color: rgb(94, 23, 200);
+  --container-color: rgb(44, 11, 95);
+
+  /*========== Font and typography ==========*/
+  --body-font: 'Poppins', sans-serif;
+  --biggest-font-size: 2.25rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1.125rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+  --smaller-font-size: .75rem;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+@media screen and (min-width: 968px) {
+  :root {
+    --biggest-font-size: 3rem;
+    --h2-font-size: 1.75rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+    --smaller-font-size: .813rem;
+  }
+}
+
+/*=============== BASE ===============*/
+*, ::before, ::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: var(--header-height) 0 0 0;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+  transition: .5s;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.section {
+  padding: 4.5rem 0 1rem;
+}
+
+.section__title, .section__title-center {
+  font-size: var(--h2-font-size);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.center {
+  text-align: center;
+}
+
+
+/*=============== LAYOUT ===============*/
+.container {
+  max-width: 968px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/*=============== HEADER ===============*/
+.header {
+  width: 100%;
+  background-color: var(--body-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+  transition: .5s;
+}
+
+/*=============== NAV ===============*/
+.nav {
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (max-width: 767px) {
+  .nav__menu {
+    position: fixed;
+    background-color: var(--container-color);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem 0;
+    width: 90%;
+    top: -100%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    transition: .4s;
+    border-radius: 2rem;
+    z-index: var(--z-fixed);
+  }
+}
+
+.nav__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1.5rem;
+}
+
+.nav__link, .nav__logo, .nav__toggle {
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.nav__toggle {
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+/* Show menu */
+.show-menu {
+  top: calc(var(--header-height) + 1rem);
+}
+
+
+/*=============== HOME ===============*/
+.home__container {
+  row-gap: 3rem;
+}
+
+.home__title {
+  font-size: var(--biggest-font-size);
+  font-weight: 700;
+  margin-bottom: .75rem;
+}
+
+.home__description {
+  margin-bottom: 2rem;
+}
+
+.home__card {
+  text-align: center;
+  background-color: var(--container-color);
+  width: 100px;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.home__card i {
+  font-size: 1.25rem;
+}
+
+/*=============== BUTTONS ===============*/
+.button {
+  display: inline-block;
+  background-color: var(--container-color);
+  color: var(--text-color);
+  padding: .75rem 1.5rem;
+  border-radius: 3rem;
+  font-weight: 600;
+  transition: .3s;
+}
+
+.button:hover {
+  background-color: #fff;
+  color: var(--container-color);
+}
+
+.button__header {
+  display: none;
+}
+
+.button-link {
+  background: none;
+  padding: 0;
+  color: var(--text-color);
+}
+
+.button-link:hover {
+  background-color: transparent;
+}
+
+.button-flex {
+  display: inline-flex;
+  align-items: center;
+  column-gap: .25rem;
+  padding: .75rem 1rem;
+}
+
+.button__icon {
+  font-size: 1.5rem;
+}
+
+
+/*=============== SERVICES ===============*/
+.services__container {
+  padding-top: 1rem;
+}
+
+.services__data {
+  row-gap: 1rem;
+}
+
+.services__img {
+  width: 135px;
+  justify-self: center;
+  margin-bottom: .5rem;
+}
+
+.services__card {
+  text-align: center;
+  padding: 2rem;
+  border: 1px solid rgb(161, 161, 161);
+}
+
+.services__name {
+  font-size: var(--h3-font-size);
+}
+
+.services__description {
+  font-size: var(--small-font-size);
+}
+
+/*=============== VEHICLE ===============*/
+.vehicle__card {
+  background-color: var(--container-color);
+  padding: 3rem;
+}
+
+.vehicle__button {
+  background-color: var(--body-color);
+}
+
+.stars i {
+  color: rgb(238, 236, 89);
+  font-size: 1.5rem;
+}
+
+/*=============== CARS ===============*/
+.cars__card {
+  background-color: rgb(73, 8, 171);
+  padding: 3rem;
+  border-radius: 2rem;
+}
+
+.cars__button {
+  justify-self: center;
+}
+
+.cars__features {
+  display: flex;
+  gap: 1rem;
+}
+
+
+/*=============== CONTACT ===============*/
+.contact__container {
+  padding-bottom: 3rem;
+}
+
+.contact__description {
+  text-align: center;
+}
+
+.contact__content {
+  row-gap: .75rem;
+}
+
+.contact__address {
+  font-size: var(--small-font-size);
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color);
+}
+
+.contact__information {
+  font-weight: initial;
+  color: var(--text-color);
+}
+
+/*=============== FOOTER ===============*/
+.footer__info {
+  text-align: center;
+  padding: 2rem 0;
+  }
+  
+  .footer__privacy {
+    padding-top: 1rem;
+    color: var(--text-color);
+  }
+
+/*=============== MEDIA QUERIES ===============*/
+/* For small devices */
+@media screen and (max-width: 360px) {
+  
+  .section {
+    padding: 3.5rem 0 1rem;
+  }
+
+ 
+}
+
+/* For medium devices */
+
+@media screen and (min-width: 767px) {
+  body {
+    margin: 0;
+  }
+
+  .section {
+    padding: 6rem 0 2rem;
+  }
+
+  .nav {
+    height: calc(var(--header-height) + 1.5rem);
+  }
+
+  .nav__list {
+    flex-direction: row;
+    column-gap: 2.5rem;
+  }
+
+  .nav__toggle {
+    display: none;
+  }
+  
+  .home__container {
+    padding: 6rem 0 2rem;
+  }
+
+  .home__cards {
+    grid-template-columns: repeat(3, 100px);
+  }
+
+  .services__cards,
+  .cars__cards {
+    grid-template-columns: repeat(2, 300px);
+    justify-content: center;
+  }
+  
+}
+
+/* For large devices */
+@media screen and (min-width: 968px) {
+  .button__header {
+    display: block;
+  }
+
+  .vehicle__card {
+    grid-template-columns: repeat(2, 50%);
+    align-items: center;
+  }
+
+  .cars__cards {
+    grid-template-columns: repeat(3, 300px);
+    justify-content: center;
+  }
+  
+  .contact__container {
+    grid-template-columns: 3fr 1.5fr 1.25fr;
+    column-gap: 6rem;
+  }
+ 
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .home__container,
+  .services__container {
+    grid-template-columns: 50% 50%;
+    align-items: center;
+  }
+
+  .services__cards {
+    grid-template-columns: repeat(2, 200px);
+    justify-content: center;
+  }
+
+  .home__img {
+    width: 540px;
+  }
+  .home__description {
+    padding-right: 5rem;
+  }
+
+}
